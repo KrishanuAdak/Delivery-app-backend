@@ -1,6 +1,6 @@
-package com.example.auth_service.dto.EventsName;
+package com.example.auth_service.enums.EventsName;
 
-public enum OtpEvents {
+public enum OtpEventTypes {
     OTP_SENT,
     OTP_VERIFIED,
     OTP_FAILED,

@@ -1,10 +1,8 @@
 package com.example.auth_service.model;
 
 import java.time.Instant;
-import java.util.UUID;
 
 import com.example.auth_service.enums.AccountStatus;
-import com.example.auth_service.id_generator.SnowflakeIdGenerator;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -64,7 +62,7 @@ public class UserInfo {
         updatedAt = Instant.now();
     }
 
-    public UUID getUserId() {
+    public long getUserId() {
         return userId;
     }
 
@@ -99,6 +97,19 @@ public class UserInfo {
     public Instant getUpdatedAt() {
         return updatedAt;
     }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+    
 }
 
 
