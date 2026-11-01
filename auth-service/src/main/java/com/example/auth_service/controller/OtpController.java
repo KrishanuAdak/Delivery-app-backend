@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.auth_service.dto.OtpRequest;
@@ -29,14 +28,15 @@ public class OtpController {
 
     @PostMapping ("/send")
     public ResponseEntity<?> sendOtp(@Valid @RequestBody OtpRequest request) {
-        this.otpService.sendAndStoreOtp(request);
-        return ResponseEntity.ok("OTP sent successfully");
+        System.out.println("Called");
+        this.otpService.sendOtp(request);
+        return ResponseEntity.status(HttpStatus.OK).body("OTP sent successfully");
     } 
 
     @PostMapping("/verify-otp")
     public ResponseEntity<AuthResponse> verifyOtp(@Valid @RequestBody VerifyOtpRequest request) {
         AuthResponse response = authService.verifyOtpAndLogin(request);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }
 

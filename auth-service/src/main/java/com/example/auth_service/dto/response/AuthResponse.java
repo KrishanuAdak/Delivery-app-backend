@@ -4,7 +4,4 @@ public record AuthResponse(Long userId,
     String accessToken,
     String tokenType,
     long expiresIn
-) {
-
-
-}
+) {}
